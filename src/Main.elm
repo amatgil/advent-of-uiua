@@ -7,29 +7,32 @@ import Html.Events exposing (onClick)
 import List exposing (..)
 import Catppuccin
 
-main =
-  Browser.sandbox { init = Model 1, update = update, view = view }
+main : Program () Model Msg
+main = Browser.sandbox { init = Model 1
+                       , update = update
+                       , view = view }
 
 type Msg = ChangeDay Int
 
 type Model = Model Int
 
 update : Msg -> Model -> Model
-update msg _ =
-  case msg of
-    ChangeDay to -> Model to
+update msg _ = case msg of
+                   ChangeDay to -> Model to
 
 
 view : Model -> Html Msg
 view (Model day) =
-  div [] [ h1 [style "height" "1em"] [ text "Holi :3" ]
+  div [] [ h1 [ style "height" "1em"
+            , style "color" Catppuccin.text ] [ text "Advent of Uiua" ]
          , div [ style "display" "grid"
                , style "grid-template-columns" "1fr 4fr"
                , style "color" Catppuccin.text]
-            [ div [ bg Catppuccin.base , fullHeight ]
+            [ div [ style "background-color" Catppuccin.base
+                  , style "height" "100vh"]
                 [div [ style "display" "flex"
                      , style "flex-direction" "column"] daysList ]
-            , div [ bg Catppuccin.surface0 ] [ text ("Dia és: " ++ String.fromInt day ) ] ] ]
+            , displayDay day ] ]
 
 daysList : List (Html Msg)
 daysList = List.map (\n -> button [ onClick (ChangeDay n)
@@ -41,8 +44,10 @@ daysList = List.map (\n -> button [ onClick (ChangeDay n)
                                   , style "padding-top" "0.3em"
                                   , style "padding-bottom" "0.3em"
                                   , class "day-button"]
-                         [text ("Dia " ++ String.fromInt n)])
+                         [text ("Day " ++ String.fromInt n)])
            (range 1 12)
 
-fullHeight = style "height" "100vh"
-bg         = style "background-color"
+               
+displayDay : Int -> Html msg
+displayDay day = div [ style "background-color" Catppuccin.surface0 ]
+                 [ text ("Dia és: " ++ String.fromInt day ) ] 

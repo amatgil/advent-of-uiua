@@ -1,3 +1,15 @@
+ @font-face {
+  font-family: Uiua386;
+  src: url(./Uiua386.ttf);
+}
+
+body {
+  background-color: #181825;
+}
+* {
+  font-family: Uiua386;
+}
+
 .day-button:hover {
     text-decoration:underline;
 }
