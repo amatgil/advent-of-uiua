@@ -1,0 +1,6 @@
+* Advent of Uiua
+
+** Compiling
+#+begin_src 
+    elm make src/Main.elm --output=main.js
+#+end_src
