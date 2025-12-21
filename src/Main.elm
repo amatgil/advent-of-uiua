@@ -31,23 +31,53 @@ view (Model day) =
             [ div [ style "background-color" Catppuccin.base
                   , style "height" "100vh"]
                 [div [ style "display" "flex"
-                     , style "flex-direction" "column"] daysList ]
+                     , style "flex-direction" "column"] daysSelectList ]
             , displayDay day ] ]
 
-daysList : List (Html Msg)
-daysList = List.map (\n -> button [ onClick (ChangeDay n)
-                                  , style "text-align" "left"
-                                  , style "border" "none"
-                                  , style "background-color" Catppuccin.base
-                                  , style "color" Catppuccin.text
-                                  , style "font-size" "1.5em"
-                                  , style "padding-top" "0.3em"
-                                  , style "padding-bottom" "0.3em"
-                                  , class "day-button"]
-                         [text ("Day " ++ String.fromInt n)])
-           (range 1 12)
+daysSelectList : List (Html Msg)
+daysSelectList = List.map (\n -> button [ onClick (ChangeDay n)
+                                        , style "text-align" "left"
+                                        , style "border" "none"
+                                        , style "background-color" Catppuccin.base
+                                        , style "color" Catppuccin.text
+                                        , style "font-size" "1.5em"
+                                        , style "padding-top" "0.3em"
+                                        , style "padding-bottom" "0.3em"
+                                        , class "day-button"]
+                              [ text ("Day " ++ String.fromInt n) ])
+                 (range 1 12)
 
                
 displayDay : Int -> Html msg
 displayDay day = div [ style "background-color" Catppuccin.surface0 ]
-                 [ text ("Dia és: " ++ String.fromInt day ) ] 
+                  [ p [] [text ("Dia és: " ++ String.fromInt day )] ] 
+
+
+day1 = div [] [
+        
+        ]
+
+-- # Experimental!
+-- ~ "git: github.com/amatgil/steal-gift" ~ AoCGet
+-- 
+-- # ====== INPUTS ======
+-- Input ← AoCGet 2025 1
+-- 
+-- $ L68
+-- $ L30
+-- $ R48
+-- $ L5
+-- $ R60
+-- $ L55
+-- $ L1
+-- $ L99
+-- $ R14
+-- $ L82
+-- Sample ←
+-- 
+-- Parse ← ˜⊏¯1_1⨂"LR"⊜(⊙⋕°⊂)⊸≠@\n
+-- Part₁ ← /+=₀◿₁₀₀ \+⊂50 × Parse
+-- Part₂ ← /+=₀◿₁₀₀ \+⊂50 ˜▽ Parse
+-- 
+-- ⍤⤙≍ 3 Part₁ Sample
+-- ⍤⤙≍ 6 Part₂ Sample
