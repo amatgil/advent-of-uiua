@@ -9,8 +9,16 @@ verbatim s = div [ style "white-space" "pre"
                  , style "background-color" Catppuccin.crust
                  , style "width" "min-content"
                  , style "padding" "0.2em"
-                 , style "color" Catppuccin.subtext0 ] [ Html.text s ]
+                 , style "color" Catppuccin.subtext0
+                 , style "font-size" "1.2em" ] [ Html.text s ]
 
+verbatimInline : String -> Html msg
+verbatimInline s = span [ style "white-space" "pre"
+                        , style "background-color" Catppuccin.crust
+                        , style "width" "min-content"
+                        , style "padding" "0.2em"
+                        , style "color" Catppuccin.subtext0 ] [ Html.text s ]
+             
 scanl : (a -> b -> a) -> a -> List b -> List a
 scanl f acc l = case l of
                []     -> [acc]
@@ -19,3 +27,6 @@ scanl f acc l = case l of
           
 uiuaCode : String -> Html msg
 uiuaCode link = iframe [ src link, style "width" "90%", style "height" "30em"] []
+
+vspace : Html msg
+vspace = br [] []

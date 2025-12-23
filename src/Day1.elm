@@ -52,13 +52,12 @@ part1 = div [] [ h3 [] [text "The Goal"]
 
 
 part2 : Html msg
-part2 = div [] [ h3 [] [text "The Goal"]
-               , p [] [text """We're now told that each move is actually a sequence of magnitude=1 moves. So, where
+part2 = div [] [ p [] [text """We're now told that each move is actually a sequence of magnitude=1 moves. So, where
                              before we had that -1 and 10 implied that we would move -10 once, it now implies that we will now move -1 ten times.
                              We can write this change by changing the multiplication with an expansion (i.e. using ▽).
                              (Since the amount of times is behind the direction, we'll use ˜▽)."""]
                , p [] [text """So, implementing this single-function change, the final code looks like:"""]
-               , verbatim """Part₂ ← /+=₀◿₁₀₀ \\+⊂50 ˜▽ Parse"""] 
+               , verbatim """Part₂ ← /+=₀◿₁₀₀ \\+⊂50 ˜▽ Parse""" ] 
 
 
 

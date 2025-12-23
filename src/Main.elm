@@ -7,6 +7,7 @@ import Html.Events exposing (onClick)
 import List exposing (..)
 import Catppuccin
 import Day1 exposing (..)
+import Day2 exposing (..)
 
 main : Program () Model Msg
 main = Browser.sandbox { init = Model 1
@@ -52,10 +53,12 @@ daysSelectList = List.map (\n -> button [ onClick (ChangeDay n)
 displayDay : Int -> Html msg
 displayDay day = div [ style "background-color" Catppuccin.surface0
                      , style "padding-left" "1em"
-                     , style "max-width" "50em"]
+                     , style "max-width" "43em"
+                     , style "font-size" "1.2em"]
                   [ h1 [] [text ("Day" ++ String.fromInt day)]
                   , case day of
-                    1 -> day1
+                    1 -> day2
+                    2 -> day2
                     _ -> div [] [ p [] [text "This day has not yet been written up!"] ]
                   ] 
 
