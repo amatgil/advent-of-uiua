@@ -1,50 +1,59 @@
-# Made by Isaac Van Doren. Source at https://github.com/isaacvando/elm-to-gh-pages.
-name: Deploy an Elm app to GitHub Pages
+name: Deploy Elm App to GitHub Pages
 
 on:
-  # Runs on pushes targeting the default branch
+  # Trigger the workflow on pushes to the main branch
   push:
-    branches: ["main"]
+    branches:
+      - master
 
-  # Allows you to run this workflow manually from the Actions tab
+  # Allow manual workflow dispatch
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
+  # Set permissions for the GitHub token to allow deployment
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# Cancel current deployment when a new push occurs
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      # Checkout the repository
+      - name: Checkout code
         uses: actions/checkout@v5
 
-      - name: Build Elm artifact
-        uses: jorelali/setup-elm@v6
-        with:
-          elm-version: 0.19.1
-      - run: elm make src/Main.elm
+      - name: Install Elm
+        run: |
+          # Install Elm using npm
+          sudo apt-get update
+          sudo apt-get install -y npm
+          sudo npm install -g elm@0.19.1
 
-      - name: Setup Pages
+      - name: Install Elm dependencies and build
+        run: elm make src/Main.elm --output=dist/main.js
+
+      # Uglify (minify) the JavaScript output using Terser
+      - name: Minify JavaScript
+        run: |
+          npx terser dist/main.js --compress --mangle --output dist/main.min.js
+
+      # Set up GitHub Pages for deployment
+      - name: Set up GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact
+      # Upload the generated files (e.g., dist/ directory) to GitHub Pages
+      - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
-          
+          path: dist/
+
+      # Deploy the artifact to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
