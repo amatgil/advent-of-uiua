@@ -47,7 +47,7 @@ jobs:
         run: |
            cp index.html dist/
            cp style.css dist/
-           cp Uiua.woff dist/
+           cp Uiua386.woff dist/
 
 
       # Set up GitHub Pages for deployment
