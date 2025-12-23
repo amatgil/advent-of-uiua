@@ -44,7 +44,10 @@ jobs:
 
       # Bring in the actual thing
       - name: bring in the thing
-        run: cp index.html dist/index.html
+        run: |
+           cp index.html dist/
+           cp style.css dist/
+
 
       # Set up GitHub Pages for deployment
       - name: Set up GitHub Pages
