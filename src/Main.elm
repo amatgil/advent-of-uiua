@@ -30,8 +30,7 @@ view (Model day) =
          , div [ style "display" "grid"
                , style "grid-template-columns" "1fr 4fr"
                , style "color" Catppuccin.text]
-            [ div [ style "background-color" Catppuccin.base
-                  , style "height" "100vh"]
+            [ div [ style "background-color" Catppuccin.base ]
                 [div [ style "display" "flex"
                      , style "flex-direction" "column"] daysSelectList ]
             , displayDay day ] ]
@@ -55,7 +54,10 @@ displayDay day = div [ style "background-color" Catppuccin.surface0
                      , style "padding-left" "1em"
                      , style "max-width" "50em"]
                   [ h1 [] [text ("Day" ++ String.fromInt day)]
-                  , day1 ] 
+                  , case day of
+                    1 -> day1
+                    _ -> div [] [ p [] [text "This day has not yet been written up!"] ]
+                  ] 
 
 
 -- # Experimental!

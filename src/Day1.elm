@@ -69,8 +69,8 @@ part2 = div [] [ h3 [] [text "The Goal"]
 bothPartsEmbedLink : String
 bothPartsEmbedLink = "https://uiua.org/embed?src=0_18_0-dev_3__eJxTUfAxs-BSUfAxNuBSUQgyAbNNQUwzkICPKYjtYwgiLC1BwoYmILaFEVdwYm5BTqrCo7YJXFwBiUXFYKbC6TmPuvoPrTeMN3y0oknJJ0jpUdccjUddMx91Tz204VFXk-ajrh2POhc4xOSBNJU8amoEa9PXtn3U1PBo-v5HTY0gRlODQoz2o64mUwOFw9MVwMZD1TcRUn96zqNpe6Fa4HZAHAs3AsoFANsUZck="
 
-part1EmbedLink : String
-part1EmbedLink =  "https://uiua.org/embed?src=0_18_0-dev_3__eJxTUfAxs-BSUfAxNuBSUQgyAbNNQUwzkICPKYjtYwgiLC1BwoYmILaFEVdwYm5BTqrCo7YJXFwBiUXFYKbC6TmPuvoPrTeMN3y0oknJJ0jpUdccjUddMx91Tz204VFXk-ajrh2POhc4xOSBNJU8amoEa9PXtn3U1PBo-v5HTY0gRlODQoz2o64mUwOFw9MVwMbD1UMs5gIAuFxGxg=="
+-- part1EmbedLink : String
+-- part1EmbedLink =  "https://uiua.org/embed?src=0_18_0-dev_3__eJxTUfAxs-BSUfAxNuBSUQgyAbNNQUwzkICPKYjtYwgiLC1BwoYmILaFEVdwYm5BTqrCo7YJXFwBiUXFYKbC6TmPuvoPrTeMN3y0oknJJ0jpUdccjUddMx91Tz204VFXk-ajrh2POhc4xOSBNJU8amoEa9PXtn3U1PBo-v5HTY0gRlODQoz2o64mUwOFw9MVwMbD1UMs5gIAuFxGxg=="
 -- /+=₀◿₁₀₀ \+⊂50 × Parse
 
 sample : List ( String, number )
