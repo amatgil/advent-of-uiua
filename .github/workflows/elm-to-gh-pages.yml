@@ -40,8 +40,11 @@ jobs:
 
       # Uglify (minify) the JavaScript output using Terser
       - name: Minify JavaScript
-        run: |
-          npx terser dist/main.js --compress --mangle --output dist/main.min.js
+        run: npx terser dist/main.js --compress --mangle --output dist/elm.js
+
+      # Bring in the actual thing
+      - name: bring in the thing
+        run: cp index.html dist/index.html
 
       # Set up GitHub Pages for deployment
       - name: Set up GitHub Pages
