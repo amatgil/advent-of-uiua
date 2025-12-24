@@ -7,10 +7,11 @@ import Html.Attributes exposing (..)
 day2 : Html msg
 day2 = div [] [ h2 [] [text "Part 1"]
               , part1
+              , vspace
               , h2 [] [text "Part 2"]
               , part2
               , h2 [] [text "Playground"]
-              , uiuaCode bothPartsEmbedLink ]
+              , uiuaCode bothPartsEmbedLink 24 ]
 
 part1 : Html msg
 part1 = div [] [ p [] [ text "Given some sequence of ranges, like the following comma-separated ranges" ]
@@ -34,7 +35,6 @@ part1 = div [] [ p [] [ text "Given some sequence of ranges, like the following 
                               the hyphen as numbers. All together, this looks like:"""]
                , verbatim """⊜(⊜⋕⊸≠@-)⊸≠@,"""
                , vspace
-               ,
                ]
 
 

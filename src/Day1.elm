@@ -7,23 +7,25 @@ import Html.Attributes exposing (..)
 day1 : Html msg
 day1 = div [] [ h2 [] [text "Part 1"]
               , part1
+              , vspace
               , h2 [] [text "Part 2"]
               , part2
               , h2 [] [text "Playground"]
-              , uiuaCode bothPartsEmbedLink ]
+              , uiuaCode bothPartsEmbedLink 31 ]
 
 part1 : Html msg
 part1 = div [] [ h3 [] [text "The Goal"]
                , p [] [ text """We're given some sequence of moves, each of which has a
                              direction (left or right) and a magnitude. Each move is to be applied
                              to a vault's dial with a hundred positions, starting at 50. For
-                             example, for this input""" ]
+                             example, for this input:""" ]
                , verbatim sampleText
                , p [] [ text """We would have the following positions (in parentheses). Remember: we start with 50 and,
                               since the dial is circular, we always wrap back""" ]
                , verbatim sampleTextSolved
                , p [] [ text "The ultimate goal is to count the number of 0s (in this case, there's three of them)." ]
 
+               , vspace
 
                , h3 [] [text "The Parsing"]
                , p [] [text """Parsing this input is straight-forward: for each line, we'll pull out the first
@@ -37,6 +39,8 @@ part1 = div [] [ h3 [] [text "The Goal"]
                , p [] [text "Which ends up looking like this:" ]
                , verbatim """˜⊏¯1_1⨂"LR"⊜(⊙⋕°⊂)⊸≠@\n"""
 
+               , vspace
+
                , h3 [] [text "The Solution"]
                , p [] [text """This is a textbook case of modular arithmetic: we will interpret going left
                              as a negative value and going right as a positive one. We will scan across, adding the
@@ -46,6 +50,8 @@ part1 = div [] [ h3 [] [text "The Goal"]
                , verbatim """\\+⊂50"""
                , p [] [ text "And then count how many values are equal to zero, modulo 100:" ]
                , verbatim "/+=₀◿₁₀₀"
+
+               , vspace
 
                , p [] [ text "Altogether, Part 1 looks like:" ]
                , verbatim """Part₁ ← /+=₀◿₁₀₀ \\+⊂50 × Parse""" ]

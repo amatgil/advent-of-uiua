@@ -57,33 +57,7 @@ displayDay day = div [ style "background-color" Catppuccin.surface0
                      , style "font-size" "1.2em"]
                   [ h1 [] [text ("Day" ++ String.fromInt day)]
                   , case day of
-                    1 -> day2
+                    1 -> day1
                     2 -> day2
                     _ -> div [] [ p [] [text "This day has not yet been written up!"] ]
                   ] 
-
-
--- # Experimental!
--- ~ "git: github.com/amatgil/steal-gift" ~ AoCGet
--- 
--- # ====== INPUTS ======
--- Input ← AoCGet 2025 1
--- 
--- $ L68
--- $ L30
--- $ R48
--- $ L5
--- $ R60
--- $ L55
--- $ L1
--- $ L99
--- $ R14
--- $ L82
--- Sample ←
--- 
--- Parse ← ˜⊏¯1_1⨂"LR"⊜(⊙⋕°⊂)⊸≠@\n
--- Part₁ ← /+=₀◿₁₀₀ \+⊂50 × Parse
--- Part₂ ← /+=₀◿₁₀₀ \+⊂50 ˜▽ Parse
--- 
--- ⍤⤙≍ 3 Part₁ Sample
--- ⍤⤙≍ 6 Part₂ Sample

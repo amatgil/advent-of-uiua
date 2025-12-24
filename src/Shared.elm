@@ -25,8 +25,8 @@ scanl f acc l = case l of
                (x::xs) -> acc::(scanl f (f acc x) xs)
           
           
-uiuaCode : String -> Html msg
-uiuaCode link = iframe [ src link, style "width" "90%", style "height" "30em"] []
+uiuaCode : String -> Int -> Html msg
+uiuaCode link height = iframe [ src link, style "width" "90%", style "height" (String.fromInt height ++ "em")] []
 
 vspace : Html msg
 vspace = br [] []
