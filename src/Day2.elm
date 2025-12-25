@@ -152,7 +152,9 @@ Part₁ ← Shared!(≍⊃↙↘⊸(⌊÷₂⧻))"""
                              , text "."]
                       , vspace
                       , p [] [ text "And so, we arrive at our final invalidness check for Part 2:"]
-                      , verbatim """/∨≡⌟(=₁⧻◴⧈∘¤¤)⊸(=₁⧻◴)"""
+                      , verbatim """/∨≡⌟(=₁⧻◴⧈∘¤¤)⊸(⊚=₀◿⊸⇡⧻)"""
+                      , vspace
+                      , p [] [text "Challenge: Can you make finding the factors do log(n) work instead of linear work?"]
                ] 
 
 
