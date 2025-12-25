@@ -35,6 +35,7 @@ part1 = div [] [ p [] [ text "Given some sequence of ranges, like the following 
                               the hyphen as numbers. All together, this looks like:"""]
                , verbatim """⊜(⊜⋕⊸≠@-)⊸≠@,"""
                , vspace
+               , p [] [ text "Now, we'll "]
                ]
 
 

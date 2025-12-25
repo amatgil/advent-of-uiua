@@ -6,11 +6,12 @@ import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
 import List exposing (..)
 import Catppuccin
+import Day0 exposing (..)
 import Day1 exposing (..)
 import Day2 exposing (..)
 
 main : Program () Model Msg
-main = Browser.sandbox { init = Model 1
+main = Browser.sandbox { init = Model 0
                        , update = update
                        , view = view }
 
@@ -37,17 +38,18 @@ view (Model day) =
             , displayDay day ] ]
 
 daysSelectList : List (Html Msg)
-daysSelectList = List.map (\n -> button [ onClick (ChangeDay n)
-                                        , style "text-align" "left"
-                                        , style "border" "none"
-                                        , style "background-color" Catppuccin.base
-                                        , style "color" Catppuccin.text
-                                        , style "font-size" "1.5em"
-                                        , style "padding-top" "0.3em"
-                                        , style "padding-bottom" "0.3em"
-                                        , class "day-button"]
-                              [ span [ style "margin-left" "0.2em"] [text ("Day " ++ String.fromInt n) ]])
-                 (range 1 12)
+daysSelectList = ("Welcome", 0) :: List.map (\n -> ("Day " ++ String.fromInt n, n)) (range 1 12) |>
+                   List.map (\(t, n) -> button [ onClick (ChangeDay n)
+                                          , style "text-align" "left"
+                                          , style "border" "none"
+                                          , style "background-color" Catppuccin.base
+                                          , style "color" Catppuccin.text
+                                          , style "font-size" "1.5em"
+                                          , style "padding-top" "0.3em"
+                                          , style "padding-bottom" "0.3em"
+                                          , class "day-button"]
+                                 [ span [ style "margin-left" "0.2em"] [text t ]])
+                 
 
                
 displayDay : Int -> Html msg
@@ -55,8 +57,9 @@ displayDay day = div [ style "background-color" Catppuccin.surface0
                      , style "padding-left" "1em"
                      , style "max-width" "43em"
                      , style "font-size" "1.2em"]
-                  [ h1 [] [text ("Day" ++ String.fromInt day)]
+                  [ h1 [] [ if day == 0 then text "Welcome!" else  text ("Day" ++ String.fromInt day)]
                   , case day of
+                    0 -> day0
                     1 -> day1
                     2 -> day2
                     _ -> div [] [ p [] [text "This day has not yet been written up!"] ]
