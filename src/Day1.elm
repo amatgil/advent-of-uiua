@@ -37,7 +37,7 @@ part1 = div [] [ h3 [] [text "The Goal"]
                , p [] [text """...and map the head from {L, R} &rarr; {-1, 1}"""]
                , verbatim """˜⊏¯1_1⨂"LR\""""          
                , p [] [text "Which ends up looking like this:" ]
-               , verbatim """˜⊏¯1_1⨂"LR"⊜(⊙⋕°⊂)⊸≠@\n"""
+               , verbatim """Parse ← ˜⊏¯1_1⨂"LR" ⊜(⊙⋕°⊂)⊸≠@\n"""
 
                , vspace
 
@@ -62,8 +62,13 @@ part2 = div [] [ p [] [text """We're now told that each move is actually a seque
                              before we had that -1 and 10 implied that we would move -10 once, it now implies that we will now move -1 ten times.
                              We can write this change by changing the multiplication with an expansion (i.e. using ▽).
                              (Since the amount of times is behind the direction, we'll use ˜▽)."""]
-               , p [] [text """So, implementing this single-function change, the final code looks like:"""]
-               , verbatim """Part₂ ← /+=₀◿₁₀₀ \\+⊂50 ˜▽ Parse""" ] 
+               , p [] [text """So, implementing this single-function (i.e. two glyph!) change, the final code looks like:"""]
+               , verbatim """Part₂ ← /+=₀◿₁₀₀ \\+⊂50 ˜▽ Parse"""
+               , p [] [ text "Note that this is not the most "
+                      , em [] [text "efficient"]
+                      , text " per se. It is, however, really pretty, which is the ultimate North Star that"
+                      , text " guides the design of these solutions."]
+               ] 
 
 
 

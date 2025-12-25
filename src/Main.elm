@@ -55,7 +55,8 @@ daysSelectList = ("Welcome", 0) :: List.map (\n -> ("Day " ++ String.fromInt n, 
 displayDay : Int -> Html msg
 displayDay day = div [ style "background-color" Catppuccin.surface0
                      , style "padding-left" "1em"
-                     , style "max-width" "43em"
+                     , style "padding-right" "3em"
+                     , style "max-width" "40em"
                      , style "font-size" "1.2em"]
                   [ h1 [] [ if day == 0 then text "Welcome!" else  text ("Day" ++ String.fromInt day)]
                   , case day of

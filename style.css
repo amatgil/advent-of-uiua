@@ -13,3 +13,19 @@ body {
 .day-button:hover {
     text-decoration:underline;
 }
+
+
+
+a:link {
+    color: #74c7ec;
+}
+a:visited {
+    color: #74c7ec;
+}
+a:hover {
+    color: #74c7ec;
+}
+a:active {
+    color: #74c7ec;
+}
+      
