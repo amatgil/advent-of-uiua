@@ -6,7 +6,7 @@ import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
 import List exposing (..)
 import Catppuccin
-import Day0 exposing (..)
+import Welcome exposing (..)
 import Day1 exposing (..)
 import Day2 exposing (..)
 
@@ -59,7 +59,7 @@ displayDay day = div [ style "background-color" Catppuccin.surface0
                      , style "font-size" "1.2em"]
                   [ h1 [] [ if day == 0 then text "Welcome!" else  text ("Day" ++ String.fromInt day)]
                   , case day of
-                    0 -> day0
+                    0 -> welcome
                     1 -> day1
                     2 -> day2
                     _ -> div [] [ p [] [text "This day has not yet been written up!"] ]
