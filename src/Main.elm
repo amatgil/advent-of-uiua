@@ -48,7 +48,7 @@ daysSelectList = ("Welcome", 0) :: List.map (\n -> ("Day " ++ String.fromInt n, 
                                           , style "padding-top" "0.3em"
                                           , style "padding-bottom" "0.3em"
                                           , class "day-button"]
-                                 [ span [ style "margin-left" "0.2em"] [text t ]])
+                                        [ span [ style "margin-left" "0.2em"] [text t ]])
                  
 
                
